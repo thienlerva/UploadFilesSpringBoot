@@ -30,6 +30,8 @@ public class FileUploadControlleer {
 
         for (MultipartFile file : files) {
             Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+            System.out.println("original file name: " + file.getOriginalFilename());
+            System.out.println("fileNameand path: " + fileNameAndPath);
             fileName.append(file.getOriginalFilename() + " ");
 
             try {
@@ -39,6 +41,7 @@ public class FileUploadControlleer {
             }
         }
         model.addAttribute("msg", "Successfully uploaded files " + fileName.toString());
+        System.out.println(model);
         return "uploadstatusview";
     }
 
